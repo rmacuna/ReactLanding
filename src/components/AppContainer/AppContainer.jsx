@@ -1,23 +1,20 @@
-import styled from 'styled-components';
-
 import React from 'react';
+import styled from 'styled-components';
 
 const Container = styled.div`
     position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 950px;
+    margin-left: ${props => props.textContainer ? 0: 'auto'};
+    margin-right: ${props => props.textContainer ? 0: 'auto'};
+    max-width: ${props => props.width ? props.width : '950px'};;
     padding-left: ${props => props.left ? props.left : '15px'};
     padding-right: ${props => props.right ? props.right : '15px'};
     padding-top: ${props => props.top ? props.top: 'auto'};
     padding-bottom: ${props => props.bottom ? props.bottom : 'auto'};
-
 `
 
-
-const AppContainer = ({props}) => {
+const AppContainer = (props) => {
     return (
-        <Container {...props}>{props.children}</Container>
+        <Container {...props}> {props.children}</Container>
     );
 };
 
