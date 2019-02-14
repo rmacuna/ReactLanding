@@ -1,26 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import AppBar from './components/Appbar';
+import './App.scss';
+import { Grid, Row, Col } from 'react-flexbox-grid';
+import Typography from './components/Typography';
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <React.Fragment>
+
+        <div className="MainWrapper Linear--purple__background">
+          <AppBar></AppBar>
+          <Grid fluid>
+            <Row>
+              <Col xs={12}>
+                <Typography></Typography>
+              </Col>
+            </Row>
+          </Grid>
+        </div>
+        <div className="SecondWrapper">
+
+        </div>
+
+
+
+      </React.Fragment>
+
     );
   }
 }
