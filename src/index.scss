@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 body {
   margin: 0;
   padding: 0;
@@ -8,18 +10,13 @@ body {
   // -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 :root {
   --main_wrapper_background: linear-gradient(178.38deg, #7629F5 73.31%, rgba(255, 255, 255, 0) 203.63%), #2D1555;
   --main_wrapper_padding:  48px 50px;
-  --main_wrapper_shadow_textsize: 112px;
-  --main_wrapper_bottom_shadow_textsize: 110px;
-
-  --title_white_font_size: 65px;
-  --subtitle_orange_font_size: 90px;
-  
   --green_box_padding: 35px 65px;
-  --artist_name_font-size: 80px;
 }
+
 
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */

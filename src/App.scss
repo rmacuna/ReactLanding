@@ -1,11 +1,84 @@
+@import './variables.scss';
 
-.MainWrapper, .SecondWrapper{
+.MainWrapper{
     position: relative;
     width: auto;
-    min-height: 100vh;
+    min-height: 90vh;
     overflow: hidden;
+}
+.SecondWrapper {
+    min-height: 100vh;
 }
 .Linear--purple__background{
     padding: var(--main_wrapper_padding);
     background: var(--main_wrapper_background);
 }
+.MainWrapperBackground {
+    position: absolute;
+    width: 80%;
+    min-height: 140vh;
+    right: 0;
+    z-index: 0;
+    background-image: url('./svg/mainwrapper.svg');
+    background-size: cover;
+}
+.MainContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.Cursor{
+    cursor: pointer;
+}
+.TextSection{
+    width: 55%;
+    z-index: 10;
+}
+.ImageSection{
+    flex: 1;
+    z-index: 3;
+    img{
+        max-width: 184%;
+        max-height: 90vh;
+    }
+    img.hideOnPhone{
+        margin-left: -177px;
+        margin-top: 57px;
+    }
+}
+@media screen and (max-width: 36em )  {
+    .MainWrapperBackground{
+        bottom: 0;
+        width: 120%;
+        min-height: 56vh;
+        right: -10px;
+    }
+    .MainContainer{
+        flex-direction: column;
+    }
+    .TextSection , .ImageSection{
+        width: 100%;
+    }
+    .ImageSection{
+        margin-left: 85px;
+    }
+}
+
+@media screen and (max-width: $tabletBreakPoint ) {
+    .MainWrapperBackground{
+        bottom: 0;
+        width: 123%;
+    }
+}
+@media screen and (max-width: $tabletBreakPoint ), screen and (orientation: portrait) {
+    .MainContainer {
+        flex-direction: column;
+    }
+    .TextSection, .ImageSection {
+        width: 100%;
+    }
+    .MainWrapperBackground{
+        width: 123%;
+    }
+}
+
