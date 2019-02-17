@@ -17,6 +17,9 @@ export const theme = {
             skewTagDegreeContent: 'skew(15deg)',
             skewTagShadow:        '0 2px 60px rgba(0,0,0,.5)'
         },
+        Footer: {
+            footerBackground: '#2d1555'
+        },
 
         secondSectionPadding:      '48px 50px'
     },

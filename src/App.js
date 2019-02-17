@@ -10,6 +10,7 @@ import charliePuth from './images/charlieputh.png';
 import MartinGarrixImage from './images/martingarrix.png';
 import SkewedTag from './components/SkewedTag';
 import { Songlist, SongTitle } from './components/SongList/Songlist';
+import Appfooter from './components/Appfooter';
 
 class App extends Component {
   render() {
@@ -129,7 +130,7 @@ class App extends Component {
                     <SongTitle artist="Charlie Puth">One Call Away</SongTitle>
                   </Songlist>
 
-                  <SkewedTag background="#2d1555" color="#ffef3f">
+                  <SkewedTag top="30px" background="#2d1555" color="#ffef3f">
                     <h1>Loudify Charlie</h1>
                   </SkewedTag>
                 </AppContainer>
@@ -138,10 +139,41 @@ class App extends Component {
             </div>
           </div>
 
+
+
+
         </div>
 
 
+        {/* Starts the fourth section */}
 
+        <div className="FourthWrapper BluePurple">
+
+          <div className="BrandWrapper">
+            <Title fontSize="44px" color="#fff">Loudify.</Title>
+          </div>
+          <div className="WrapperFlex">
+            <div className="GreenBox">
+              <div className="content">
+                <Title color="rgba(118,41,245,1)">Hot News</Title>
+                <Subtitle fontSize="24px">DISCOVER NEW TRACKS EVERYDAY</Subtitle>
+                <AppContainer top="50px" left="0" right="0" textContainer>
+                  <Text weight="300" fontSize="24px" align="justify">
+                    Loudify look for the top charts rin a lot of rankings, including spotify and deezer. The top artist will appear in the landing page so you can play their songs just with a click
+                  </Text>
+                </AppContainer>
+              </div>
+            </div>
+          </div>
+          <ShadowText marginTop="-10px">MUSIC SOUNDS GOOD</ShadowText>
+        </div>
+      
+      
+        {/* Footer of the page */}
+
+        <Appfooter> 
+          <SkewedTag background="#fff"  color="#2d1555" width="300px"><h1>Subscribe</h1></SkewedTag>
+        </Appfooter>
       </React.Fragment>
 
     );
