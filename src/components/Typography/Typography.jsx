@@ -1,5 +1,5 @@
 import React from 'react';
-import { theme, Media } from '../AppTheme';
+import { Media } from '../AppTheme';
 import styled from 'styled-components';
 
 const StyledTitle = styled.h1`

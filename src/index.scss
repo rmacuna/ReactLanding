@@ -8,6 +8,8 @@ body {
     sans-serif;
     max-width: 100%;
   // -webkit-font-smoothing: antialiased;
+
+  -webkit-tap-highlight-color: transparent;
   -moz-osx-font-smoothing: grayscale;
 }
 
@@ -15,6 +17,12 @@ body {
   --main_wrapper_background: linear-gradient(178.38deg, #7629F5 73.31%, rgba(255, 255, 255, 0) 203.63%), #2D1555;
   --main_wrapper_padding:  48px 50px;
   --green_box_padding: 35px 65px;
+
+
+  --purple_deep_color: #2d1555;
+  --green_yellow_color: linear-gradient(.36deg,rgba(250,255,0,.47) 44.51%,rgba(255,255,255,0) 142.21%),#6ef7ad;
+  --yellow_third: rgba(255,239,63,.8);
+
 }
 
 

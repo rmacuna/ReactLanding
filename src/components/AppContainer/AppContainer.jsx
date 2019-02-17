@@ -10,6 +10,9 @@ const Container = styled.div`
     padding-right: ${props => props.right ? props.right : '15px'};
     padding-top: ${props => props.top ? props.top: 'auto'};
     padding-bottom: ${props => props.bottom ? props.bottom : 'auto'};
+
+
+    height: ${props => props.height ? props.height : 'auto'};
 `
 
 const AppContainer = (props) => {
