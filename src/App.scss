@@ -1,0 +1,343 @@
+@import './variables.scss';
+
+.MainWrapper{
+    position: relative;
+    width: auto;
+    min-height: 90vh;
+    overflow: hidden;
+}
+.SecondWrapper {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.ThirdWrapper {
+    position: relative;
+    width: auto;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.FourthWrapper{
+    position: relative;
+    width: auto;
+    min-height: 100vh;
+    overflow: hidden;
+    padding: 48px 50px;
+
+    .BrandWrapper{
+        position: relative;
+        display: flex;
+        width: 100%;
+        height: 64px;
+        h1{
+            &:after {
+                content: '';
+                display: block;
+                width: 150px;
+                height: 6px;
+                margin-top: 6px;
+                border-radius: 6px;
+                background: rgba(110,247,173,1);
+            }
+        }
+    }
+    .WrapperFlex {
+        position: relative;
+        width: 100%;
+        min-height: calc(100vh - 64px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+
+    }
+}
+
+
+.GreenBox {
+
+    position: relative;
+    background: $secondary;
+    max-width: 800px;
+    min-height: 350px;
+    padding: 25px 25px;
+
+    transform: skew(-10deg);
+
+    div.content{
+        position: relative;
+        padding: 15px 25px;
+        transform: skew(10deg);
+    }
+    
+
+}
+.BluePurple {
+    position: relative;
+    background: linear-gradient(133.53deg,#7629f5 -46.14%,#1c004b 220.11%);
+}
+.Linear--purple__background {
+    padding: var(--main_wrapper_padding);
+    background: var(--main_wrapper_background);
+}
+
+.TagContainer {
+    position: relative;
+    max-width: 400px;
+    height: auto;
+}
+.MainWrapperBackground {
+    position: absolute;
+    width: 80%;
+    min-height: 140vh;
+    right: 0;
+    z-index: 0;
+    background-image: url('./svg/mainwrapper.svg');
+    background-size: cover;
+}
+.MainContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.Cursor{
+    cursor: pointer;
+}
+.TextSection{
+    width: 55%;
+    z-index: 10;
+}
+.ImageSection{
+    flex: 1;
+    z-index: 3;
+    img.InitialImage{
+        max-width: 184%;
+        max-height: 90vh;
+    }
+    img.hideOnPhone{
+        margin-left: -177px;
+        margin-top: 57px;
+    }
+
+}
+
+.ImageSection__Garrix{
+    flex: 1;
+    position: relative;
+    z-index: 3;
+    margin: auto;
+    overflow: hidden;
+    img.MartinImage {
+        width: 200%;
+        margin-top: 70px;
+        margin-left: -300px;
+        max-height: 100%;
+    }
+}
+
+
+.CategoryDivider{
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+}
+
+.BlackPurple {
+    background: var(--purple_deep_color);
+}
+.GreenYellow{
+    background: var(--green_yellow_color);
+}
+.Yellow{
+    background: var(--yellow_third);
+}
+.center-items{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.AlignToRight{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.ImageSection_Charlie { 
+    width: 60%;
+    position: relative;
+}
+.GreeenPathBackground {
+    position: absolute;
+    width: 80%;
+    right: 0;
+    min-height: 110vh;
+    background-image: url('./svg/greenpath.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: 250px;
+    background-position-y: -200px;
+}
+
+.ImageCharlie{
+    position: relative;
+    width: 98%;
+    max-width: 130%;
+    margin-left: -150px;
+}
+
+
+.CharlieBackground{
+
+    position: absolute;
+    width: 90%;
+    height: 120%;
+    z-index: 0;
+    bottom: 0;
+    right: 0;
+    background-image: url('./svg/charliebackground.svg');
+    background-size: cover;
+    -webkit-transform: rotate(20deg);
+    transform: rotate(20deg);
+}
+
+.Copyright_Container{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    justify-content: center;
+}
+
+@media screen and (max-width: $phoneBreakPoint )  {
+    .MainWrapperBackground{
+        bottom: 0;
+        width: 120%;
+        min-height: 56vh;
+        right: -10px;
+    }
+    .MainContainer{
+        flex-direction: column;
+    }
+    .TextSection , .ImageSection{
+        width: 100%;
+    }
+    .ImageSection{
+        margin-left: 85px;
+    }
+
+    .ImageSection__Garrix{
+        img{
+            padding-left: 300px;
+            max-width: 100%;
+        }
+    }
+    .ImageSection_Charlie{
+        order: 2;
+    }
+    .TextSection.Charlie {
+        order: 1;
+    }
+    .CharlieBackground{
+        width: 200%;
+        padding-left: 102px;
+        height: 80%;
+    }
+    .ImageCharlie{
+        padding-left: 150px;
+        width: 130%;
+    }
+
+    .GreeenPathBackground {
+        bottom: 0;
+        width: 200%;
+        min-height: 100vh;
+
+        background-position-x: 0;
+        background-position-y: 0
+    }
+
+    .content {
+        padding: 0;        
+        h2{
+            font-size: 21px;
+
+        }
+
+    }
+
+    .Copyright_Container{
+        margin-top: 50px;
+    }
+
+    .GreenBox {
+
+        max-width: 800px;
+        min-height: 250px;
+        transform: skew(-5deg);
+    
+        div.content{
+            position: relative;
+            transform: skew(5deg);
+        }
+        
+    
+    }
+}
+
+@media screen and (max-width: $tabletBreakPoint ) {
+    .MainWrapperBackground{
+        bottom: 0;
+        width: 123%;
+    }
+    .BrandWrapper{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 64px;
+
+       
+        
+    }
+
+}
+
+@media screen and (max-width: $tabletBreakPoint ), screen and (orientation: portrait) {
+    .MainContainer {
+        flex-direction: column;
+    }
+    .TextSection, .ImageSection {
+        width: 100%;
+    }
+    .ImageSection_Charlie{
+        order: 2;
+    }
+    .TextSection.Charlie {
+        order: 1;
+    }
+
+    .ImageCharlie{
+        padding-left: 150px;
+        width: 130%;
+    }
+    .MainWrapperBackground{
+        width: 123%;
+    }
+    .TagContainer {
+        max-width: 100%;
+    }
+    .ImageSection__Garrix{
+        img{
+            padding-left: 300px;
+            max-width: 100%;
+        }
+    }
+}
+
