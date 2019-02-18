@@ -204,6 +204,17 @@
     transform: rotate(20deg);
 }
 
+.Copyright_Container{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    justify-content: center;
+}
+
 @media screen and (max-width: $phoneBreakPoint )  {
     .MainWrapperBackground{
         bottom: 0;
@@ -259,6 +270,10 @@
 
         }
 
+    }
+
+    .Copyright_Container{
+        margin-top: 50px;
     }
 
     .GreenBox {

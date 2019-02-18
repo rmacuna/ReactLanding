@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { theme, Media } from '../AppTheme';
+import { theme, Media, MediaPortrait } from '../AppTheme';
 
 
 
@@ -44,6 +44,8 @@ const BrandTitle = styled.div`
         width: 100%;
     `};
 
+   
+
     ul {
         margin-top: 35px;
         padding: 0;
@@ -60,6 +62,10 @@ const BrandTitle = styled.div`
 
 const BrandActions = styled.div`
     width: 60%;
+    ${MediaPortrait.tablet`
+        flex-direction: column;
+        width: 100%;
+    `};
 `
 
 

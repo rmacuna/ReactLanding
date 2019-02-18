@@ -41,3 +41,13 @@ export const Media = Object.keys(theme.breakpoints).reduce((acc, label) => {
     `
     return acc
 }, {}) 
+
+
+export const MediaPortrait = Object.keys(theme.breakpoints).reduce((acc, label) => {
+    acc[label] = (...args) => css`
+      @media (max-width: ${theme.breakpoints[label] / 16}em), screen and (orientation: portrait) {
+        ${css(...args)}
+      }
+    `
+    return acc
+}, {}) 

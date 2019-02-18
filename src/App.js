@@ -158,7 +158,7 @@ class App extends Component {
                 <Title color="rgba(118,41,245,1)">Hot News</Title>
                 <Subtitle fontSize="24px">DISCOVER NEW TRACKS EVERYDAY</Subtitle>
                 <AppContainer top="50px" left="0" right="0" textContainer>
-                  <Text weight="300" fontSize="24px" align="justify">
+                  <Text weight="400" fontSize="24px" align="justify">
                     Loudify look for the top charts rin a lot of rankings, including spotify and deezer. The top artist will appear in the landing page so you can play their songs just with a click
                   </Text>
                 </AppContainer>
@@ -167,12 +167,15 @@ class App extends Component {
           </div>
           <ShadowText marginTop="-10px">MUSIC SOUNDS GOOD</ShadowText>
         </div>
-      
-      
+
+
         {/* Footer of the page */}
 
-        <Appfooter> 
-          <SkewedTag background="#fff"  color="#2d1555" width="300px"><h1>Subscribe</h1></SkewedTag>
+        <Appfooter>
+          <SkewedTag background="#fff" color="#2d1555" width="300px"><h1>Subscribe</h1></SkewedTag>
+          <div className="Copyright_Container">
+            <Text color={theme.main.secondary} weight="600">Copyright 2019 Roberto Acuña</Text>
+          </div>
         </Appfooter>
       </React.Fragment>
 
