@@ -7,7 +7,9 @@
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-flexbox-grid": "^2.1.2",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.5",
+    "react-topbar-progress-indicator": "^2.0.0",
     "styled-components": "^4.1.3"
   },
   "scripts": {
@@ -24,5 +26,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "react-async-component": "^2.0.0"
+  }
 }

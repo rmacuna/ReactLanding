@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { theme, Media } from '../AppTheme';
 
 
@@ -45,8 +46,9 @@ const Navigation = styled.ul`
     flex-grow: 5;
     margin: 0;
     align-items: center;
-    li {
+    .list-item {
         list-style: none;
+        text-decoration: none;
         font-weight: 600;
         padding: ${theme.constants.navItemsPadding};
         transition: color 0.4s ease-out;
@@ -54,10 +56,10 @@ const Navigation = styled.ul`
         cursor: pointer;
     }
         
-    li.active{
+    .list-item.active{
         color: ${theme.main.tertiary};
     }
-    li {
+    .list-item {
         &:hover {
             color: ${theme.main.tertiary}
         }
@@ -72,10 +74,10 @@ const AppBar = ({ props }) => {
                 Loudify.
             </BrandLogo>
             <Navigation>
-                <li className="active">Home</li>
-                <li>Sounds</li>
-                <li>Perfomance </li>
-                <li>Discover</li>
+                <li className="list-item active">Home</li>
+                <li className="list-item">Sounds</li>
+                <Link className="list-item" to="/perfomance">Perfomance </Link>
+                <li className="list-item">Discover</li>
             </Navigation>
         </NavWrapper>
 
