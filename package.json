@@ -28,6 +28,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "react-addons-perf": "^15.4.2",
     "react-async-component": "^2.0.0"
   }
 }

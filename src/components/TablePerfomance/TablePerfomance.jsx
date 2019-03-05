@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+// import Perf from 'react-addons-perf';
 
 
 
@@ -29,37 +30,58 @@ const Table = styled.table`
     }
 
     td.cell-active{
-        background: #41A436; 
+        background: #41DD39; 
+        /* animation: move 0.3s linear  */
+    }
+
+    @keyframes move {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
     }
 `;
 
 
 class TablePerfomance extends Component {
 
-    constructor(props) {
-        super(props);
+
+    componentDidUpdate() {
+        // Perf.stop();
+        // Perf.printExclusive();
+        // Perf.printWasted();
     }
 
- 
 
 
-    paintCell = (event) => {
-        event.target.classList.add('cell-active');
+
+    // paintCell = (event) => {
+    //     event.target.classList.add('cell-active');
+    //     // Perf.start();
+
+    // }
+
+    componentWillMount() {
+        window.performance.mark('TablePerfomance')
+    }
+
+    componentDidMount() {
+        console.log(window.performance.now('TablePerfomance'))
     }
     render() {
         return (
             <Table>
                 <thead>
                     <tr>
-                        {this.props.tableData.map((title, i) =>
-                            <th key={i}>{title}</th>
-                        )}
+                        {this.props.rows.map((title, index) => <th key={`row-${index}`}>{title}</th>)}
                     </tr>
                 </thead>
                 <tbody>
-                    {this.props.tableData.map((ind, i) =>
+                    {this.props.rows.map((ind, i) =>
                         <tr key={i}>{
-                            this.props.tableData.map((col,j) => <td  key={j} onClick={(e) => this.paintCell(e)} >{col}</td>)
+                            this.props.rows.map((col, j) => <td key={`col-${j}`}  >{col}</td>)
                         }</tr>)}
                 </tbody>
             </Table>

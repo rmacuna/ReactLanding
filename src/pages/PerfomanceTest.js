@@ -2,18 +2,19 @@ import React, { Component } from 'react';
 import TablePerfomance from '../components/TablePerfomance';
 import TopBarProgress from "react-topbar-progress-indicator"
 import './PerfomanceTest.scss';
+// import Perfomance from 'react-addons-perf';
 
 
 
 TopBarProgress.config({
     barColors: {
-      "0": "#daff63",
-      "0.5": "#daff63",
-      "1.0": "#6ef7ad"
+        "0": "#daff63",
+        "0.5": "#daff63",
+        "1.0": "#6ef7ad"
     },
     shadowBlur: 5,
     barThickness: 6
-  })
+})
 
 
 
@@ -24,33 +25,69 @@ class PerfomanceTest extends Component {
         this.state = {
             isButtonInitActive: true,
             loading: false,
-            INFORMATION: new Array(150).fill(1)
+            rows: new Array(150).fill(1)
         };
         this.doPerfomanceTest = this.doPerfomanceTest.bind(this);
+        this.addCells = this.addCells.bind(this);
+        this.removeCells = this.removeCells.bind(this);
+        this.reloadTable = this.reloadTable.bind(this);
     }
     doPerfomanceTest() {
-        
+
         this.setState({
             isButtonInitActive: !this.state.isButtonInitActive,
-            loading: !this.state.loading
+            loading: true
         })
         setTimeout(() => {
             var target = document.getElementById('target');
             target.classList.remove('hidden');
             target.scrollIntoView({ behavior: 'smooth' });
             this.setState({
-                loading: !this.state.loading
+                loading: false
             })
         }, 500);
-       
+
     }
 
-    showResults () {
+    addCells() {
+        this.setState({
+            rows: this.state.rows.concat(new Array(100).fill(1)),
+            loading: true
+        })
+
+        setTimeout(() => {
+            this.setState({
+                loading: false
+            })
+        })
+    }
+
+    removeCells() {
+        this.setState({
+            rows: this.state.rows.slice(0, 100)
+        })
+    }
+
+    reloadTable() {
+        this.setState({
+            rows: [],
+            loading: true
+        })
+        setTimeout(() => {
+            this.setState({
+                rows: new Array(150).fill(1),
+                loading: false
+            })
+        }, 500);
+
+    }
+
+    showResults() {
         let target = document.getElementById('infoContainer');
         target.classList.remove('hidden');
         target.scrollIntoView({ behavior: 'smooth' });
     }
-   
+
     render() {
         return (
             <React.Fragment>
@@ -64,24 +101,24 @@ class PerfomanceTest extends Component {
                 {this.state.isButtonInitActive ?
                     null :
                     <div id="target" className="perfomance_section hidden">
-                        {this.state.loading && <TopBarProgress/>}
+                        {this.state.loading && <TopBarProgress />}
                         <div className="container__perfomance">
 
                             <div className="container_actions">
                                 <h1 className="Operation">Click one operation</h1>
                                 <div className="Action__Items">
-                                    <button onClick={this.paintAllCells} className="buttons-actions ">Paint all cells</button>
-                                    <button onClick={this.removeCells} className="buttons-actions ">Remove 100 cells</button>
+                                    {/* <button onClick={this.paintAllCells} className="buttons-actions ">Paint all cells</button> */}
+                                    <button onClick={this.removeCells} className="buttons-actions ">Remove to 100 cells</button>
                                     <button onClick={this.addCells} className="buttons-actions ">Add 100 cells</button>
                                     <button onClick={this.reloadTable} className="buttons-actions ">Reload the table</button>
                                 </div>
                             </div>
 
-                            <h1>Simulated table of {this.state.INFORMATION.length + 'x'  + this.state.INFORMATION.length  }</h1>
+                            <h1>Simulated table of {this.state.rows.length + 'x' + this.state.rows.length}</h1>
 
                             {/* Container for the table */}
                             <div className="container_table">
-                                <TablePerfomance onPaintAllCells={this.paintAllCells}  tableData={this.state.INFORMATION}></TablePerfomance>
+                                <TablePerfomance headings={this.state.rows} rows={this.state.rows}></TablePerfomance>
                             </div>
                             <div className="centered_button_wrapper">
                                 <button onClick={this.showResults} className="buttons-actions button-result"> Show results</button>
@@ -89,7 +126,6 @@ class PerfomanceTest extends Component {
 
                         </div>
                         <div id="infoContainer" className="container__information hidden">
-                            {this.state.loading && <TopBarProgress/>}
                             <div className="results_card_container ">
 
                                 <section className="NavyCard">
