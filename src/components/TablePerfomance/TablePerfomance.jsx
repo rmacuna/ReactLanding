@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-// import Perf from 'react-addons-perf';
 
 
 
@@ -48,40 +47,33 @@ const Table = styled.table`
 class TablePerfomance extends Component {
 
 
-    componentDidUpdate() {
-        // Perf.stop();
-        // Perf.printExclusive();
-        // Perf.printWasted();
-    }
-
-
-
-
-    // paintCell = (event) => {
-    //     event.target.classList.add('cell-active');
-    //     // Perf.start();
-
-    // }
-
-    componentWillMount() {
-        window.performance.mark('TablePerfomance')
-    }
-
-    componentDidMount() {
-        console.log(window.performance.now('TablePerfomance'))
-    }
     render() {
+
+        // const Rows = () => {
+        //     this.props.rows.forEach((element, index) => {
+        //         return (
+        //             <tr key={index}>{
+        //                 this.props.rows.forEach((elem, index) => {
+        //                     return (<td key={index}>{elem}</td>)
+        //                 })
+        //             }
+        //             </tr>
+        //         )
+        //     });
+        // }
         return (
             <Table>
                 <thead>
                     <tr>
-                        {this.props.rows.map((title, index) => <th key={`row-${index}`}>{title}</th>)}
+                        {this.props.headers.map((x , i) => 
+                            <th key={i}>{x.name}</th>
+                        )}
                     </tr>
                 </thead>
                 <tbody>
                     {this.props.rows.map((ind, i) =>
                         <tr key={i}>{
-                            this.props.rows.map((col, j) => <td key={`col-${j}`}  >{col}</td>)
+                            this.props.headers.map((col, j) => <td key={`col-${j}`}>{ind}</td>)
                         }</tr>)}
                 </tbody>
             </Table>

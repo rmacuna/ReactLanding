@@ -22,63 +22,59 @@ class PerfomanceTest extends Component {
 
     constructor(props) {
         super(props);
+
         this.state = {
             isButtonInitActive: true,
             loading: false,
-            rows: new Array(150).fill(1)
+            rows: []
         };
+
         this.doPerfomanceTest = this.doPerfomanceTest.bind(this);
         this.addCells = this.addCells.bind(this);
         this.removeCells = this.removeCells.bind(this);
         this.reloadTable = this.reloadTable.bind(this);
-    }
-    doPerfomanceTest() {
 
+
+       
+    }
+
+    doPerfomanceTest() {
         this.setState({
             isButtonInitActive: !this.state.isButtonInitActive,
-            loading: true
-        })
-        setTimeout(() => {
-            var target = document.getElementById('target');
+            rows: new Array(8000).fill(1),
+        }, () => {
+            let target = document.getElementById('target');
             target.classList.remove('hidden');
             target.scrollIntoView({ behavior: 'smooth' });
-            this.setState({
-                loading: false
-            })
-        }, 500);
-
+        })
     }
 
     addCells() {
         this.setState({
             rows: this.state.rows.concat(new Array(100).fill(1)),
-            loading: true
-        })
+        });
 
-        setTimeout(() => {
-            this.setState({
-                loading: false
-            })
-        })
     }
 
     removeCells() {
-        this.setState({
-            rows: this.state.rows.slice(0, 100)
-        })
+       this.setState(({
+           rows: new Array(this.state.rows.length > 100 ? (this.state.rows.length - 100) : 0 ).fill(1)
+       }))
     }
 
     reloadTable() {
         this.setState({
             rows: [],
             loading: true
+        }, () => {
+            setTimeout(() => {
+                this.setState({
+                    rows: new Array(8000).fill(1),
+                    loading: false
+                })
+
+            }, 300)
         })
-        setTimeout(() => {
-            this.setState({
-                rows: new Array(150).fill(1),
-                loading: false
-            })
-        }, 500);
 
     }
 
@@ -89,6 +85,43 @@ class PerfomanceTest extends Component {
     }
 
     render() {
+
+        const Days = [
+            {name: 'Day 1', id: 'day1'},
+            {name: 'Day 2', id: 'day2'},
+            {name: 'Day 3', id: 'day3'},
+            {name: 'Day 4', id: 'day4'},
+            {name: 'Day 5', id: 'day5'},
+            {name: 'Day 6', id: 'day6'},
+            {name: 'Day 7', id: 'day7'},
+            {name: 'Day 8', id: 'day8'},
+            {name: 'Day 9', id: 'day9'},
+            {name: 'Day 10', id: 'day10'}, 
+            {name: 'Day 11', id: 'day11'},
+            {name: 'Day 12', id: 'day12'},
+            {name: 'Day 13', id: 'day13'},
+            {name: 'Day 14', id: 'day14'},
+            {name: 'Day 15', id: 'day15'},
+            {name: 'Day 16', id: 'day16'},
+            {name: 'Day 17', id: 'day17'},
+            {name: 'Day 18', id: 'day18'},
+            {name: 'Day 19', id: 'day19'},
+            {name: 'Day 20', id: 'day20'},
+            {name: 'Day 21', id: 'day21'},
+            {name: 'Day 22', id: 'day22'},
+            {name: 'Day 23', id: 'day23'},
+            {name: 'Day 24', id: 'day24'},
+            {name: 'Day 25', id: 'day25'},
+            {name: 'Day 26', id: 'day26'},
+            {name: 'Day 27', id: 'day27'},
+            {name: 'Day 28', id: 'day28'},
+            {name: 'Day 29', id: 'day29'},
+            {name: 'Day 30', id: 'day31'},
+        ]
+
+
+
+
         return (
             <React.Fragment>
                 <div className="background__perfomance">
@@ -114,11 +147,13 @@ class PerfomanceTest extends Component {
                                 </div>
                             </div>
 
-                            <h1>Simulated table of {this.state.rows.length + 'x' + this.state.rows.length}</h1>
+                            <h1>Simulated table of { Days.length + 'x' + this.state.rows.length}</h1>
 
                             {/* Container for the table */}
                             <div className="container_table">
-                                <TablePerfomance headings={this.state.rows} rows={this.state.rows}></TablePerfomance>
+                                <TablePerfomance
+                                     headers= { Days }    
+                                     rows={ this.state.rows }></TablePerfomance>
                             </div>
                             <div className="centered_button_wrapper">
                                 <button onClick={this.showResults} className="buttons-actions button-result"> Show results</button>
