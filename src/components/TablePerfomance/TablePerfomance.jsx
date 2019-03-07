@@ -48,19 +48,6 @@ class TablePerfomance extends Component {
 
 
     render() {
-
-        // const Rows = () => {
-        //     this.props.rows.forEach((element, index) => {
-        //         return (
-        //             <tr key={index}>{
-        //                 this.props.rows.forEach((elem, index) => {
-        //                     return (<td key={index}>{elem}</td>)
-        //                 })
-        //             }
-        //             </tr>
-        //         )
-        //     });
-        // }
         return (
             <Table>
                 <thead>
@@ -71,9 +58,9 @@ class TablePerfomance extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.props.rows.map((ind, i) =>
+                    {this.props.rows.map((elem, i) =>
                         <tr key={i}>{
-                            this.props.headers.map((col, j) => <td key={`col-${j}`}>{ind}</td>)
+                            this.props.headers.map((col, j) => <td key={`col-${j}`}>{elem.name}</td>)
                         }</tr>)}
                 </tbody>
             </Table>

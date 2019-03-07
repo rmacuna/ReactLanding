@@ -33,49 +33,68 @@ class PerfomanceTest extends Component {
         this.addCells = this.addCells.bind(this);
         this.removeCells = this.removeCells.bind(this);
         this.reloadTable = this.reloadTable.bind(this);
+        this.updateCell = this.updateCell.bind(this);
 
 
        
     }
 
     doPerfomanceTest() {
-        this.setState({
-            isButtonInitActive: !this.state.isButtonInitActive,
-            rows: new Array(8000).fill(1),
-        }, () => {
+
+        let eightThousandsArray = [];
+        for (let index = 0; index < 8000; index++) {
+            eightThousandsArray[index] = { id: index, name: '1nd'};
+        }
+        this.setState((state) => ({
+            isButtonInitActive: !state.isButtonInitActive,
+            rows: eightThousandsArray
+        }), () => {
             let target = document.getElementById('target');
             target.classList.remove('hidden');
             target.scrollIntoView({ behavior: 'smooth' });
-        })
+        });
     }
 
     addCells() {
-        this.setState({
-            rows: this.state.rows.concat(new Array(100).fill(1)),
-        });
-
+        let moreRows = [];
+        for (let i = (this.state.rows.length+1); i < (this.state.rows.length + 101); i++) {
+            moreRows.push({id: i, name: '1nd' })
+        }
+        this.setState((prevState) => ({
+            rows: prevState.rows.concat(moreRows)
+        }))
     }
 
     removeCells() {
-       this.setState(({
-           rows: new Array(this.state.rows.length > 100 ? (this.state.rows.length - 100) : 0 ).fill(1)
+       this.setState((state, props) => ({
+            rows: state.rows.splice(0 , 100),
        }))
     }
 
     reloadTable() {
-        this.setState({
+        let eightThousandsArray = [];
+        for (let index = 0; index < 8000; index++) {
+            eightThousandsArray[index] = { id: index, name: '1nd'};
+        }
+
+        this.setState((state) => ({
             rows: [],
             loading: true
-        }, () => {
-            setTimeout(() => {
-                this.setState({
-                    rows: new Array(8000).fill(1),
+        }), () => {
+            setTimeout(()  => {
+                this.setState((state) => ({
+                    rows: eightThousandsArray,
                     loading: false
-                })
-
+                }))
             }, 300)
         })
 
+    }
+
+    updateCell() {
+        this.setState((prevState) => ({
+            rows: prevState.rows.map(x => x.id === 5 ? {item: x.id, name: 'Up'} : x)
+        }))
     }
 
     showResults() {
@@ -144,6 +163,7 @@ class PerfomanceTest extends Component {
                                     <button onClick={this.removeCells} className="buttons-actions ">Remove to 100 cells</button>
                                     <button onClick={this.addCells} className="buttons-actions ">Add 100 cells</button>
                                     <button onClick={this.reloadTable} className="buttons-actions ">Reload the table</button>
+                                    <button onClick={this.updateCell} className="buttons-actions ">Update cell</button>
                                 </div>
                             </div>
 
@@ -153,7 +173,8 @@ class PerfomanceTest extends Component {
                             <div className="container_table">
                                 <TablePerfomance
                                      headers= { Days }    
-                                     rows={ this.state.rows }></TablePerfomance>
+                                     rows={ this.state.rows }>
+                                </TablePerfomance>
                             </div>
                             <div className="centered_button_wrapper">
                                 <button onClick={this.showResults} className="buttons-actions button-result"> Show results</button>
