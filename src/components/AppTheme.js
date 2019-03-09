@@ -1,5 +1,7 @@
 import { css } from 'styled-components';
 
+
+
 export const theme = {
     main: {
         primary:               'rgba(118,41,245,1)',

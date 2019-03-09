@@ -3,11 +3,12 @@ import { theme } from '../AppTheme';
 import styled from 'styled-components';
 import { Media } from '../AppTheme';
 
-const SongName = styled.li`
+const SongName = styled.ul`
 
     position: relative;
     font-weight: 600;
     font-size: 18px;
+    list-style: none;
     color: #13003c;
     z-index: 100;
     transition: background 0.3s ease-out;
