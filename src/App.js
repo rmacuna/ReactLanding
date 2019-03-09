@@ -28,7 +28,7 @@ class App extends Component {
           <div className="MainContainer">
             <div className="TextSection">
               <ShadowText>MUSIC</ShadowText>
-              <Title color="#fff">Sounds Good</Title>
+              <Title color="#fff">Sound s Good</Title>
               <Subtitle color={theme.main.tertiary} fontSize="90px">Sounds Louder</Subtitle>
               <AppContainer textContainer left="0" right="0" width="510px">
                 <Text margin="16px 0" align="justify" color="#fff" fontSize="21px">
