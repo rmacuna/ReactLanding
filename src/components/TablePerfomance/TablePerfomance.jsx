@@ -52,16 +52,20 @@ class TablePerfomance extends Component {
             <Table>
                 <thead>
                     <tr>
-                        {this.props.headers.map((x , i) => 
+                        {
+                            this.props.headers.map((x , i) => 
                             <th key={i}>{x.name}</th>
-                        )}
+                         )
+                        }
                     </tr>
                 </thead>
                 <tbody>
                     {this.props.rows.map((elem, i) =>
                         <tr key={i}>{
-                            this.props.headers.map((col, j) => <td key={`col-${j}`}>{elem.name}</td>)
-                        }</tr>)}
+                            this.props.headers.map((col, j) =>
+                             <td key={`col-${j}`}>{elem.name}</td>)}
+                        </tr>)
+                    }
                 </tbody>
             </Table>
         );

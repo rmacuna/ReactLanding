@@ -66,8 +66,10 @@ class PerfomanceTest extends Component {
     }
 
     removeCells() {
+
+      let newArray = [...this.state.rows].splice( 0 , this.state.rows.length - 100)
        this.setState((state, props) => ({
-            rows: state.rows.splice(0 , 100),
+            rows: newArray
        }))
     }
 
@@ -92,6 +94,8 @@ class PerfomanceTest extends Component {
     }
 
     updateCell() {
+
+
         this.setState((prevState) => ({
             rows: prevState.rows.map(x => x.id === 5 ? {item: x.id, name: 'Up'} : x)
         }))
