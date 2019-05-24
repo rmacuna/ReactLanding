@@ -3,6 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import * as serviceWorker from './serviceWorker';
 import AppRouter from './app.routing';
+import firebase from 'firebase';
+
+const firebaseConfig = process.env.REACT_APP_FIREBASE_CONFIG_KEY;
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
 
 ReactDOM.render(<AppRouter />, document.getElementById('root'));
 
